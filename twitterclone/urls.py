@@ -25,6 +25,7 @@ urlpatterns = [
     path('', user_view.homepage_view, name="homepage"),
     path('profilepage/<int:user_id>/', user_view.profilepage_view, name="profilepage"),
     path('tweetpage/<int:tweet_id>/', user_view.tweetpage_view, name="tweetpage"),
+    path('notifications/', note_view.notification_view, name="notifications"),
     path('follow/<int:user_id>/', user_view.follow_view, name="follow"),
     path('unfollow/<int:user_id>/', user_view.unfollow_view, name="unfollow"),
     path('tweet/', tweet_view.create_tweet_view, name="tweet"),

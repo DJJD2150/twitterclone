@@ -19,9 +19,11 @@ def homepage_view(request):
 
 def profilepage_view(request, user_id):
     profile_user = TwitterUser.objects.get(id=user_id)
+    users_following = profile_user.followed_users.all().count()
     tweets = Tweet.objects.filter(user_tweeted=profile_user).order_by('-date_tweeted')
     return render(request, 'profilepage.html', {
         'profile_user': profile_user,
+        'users_following': users_following,
         'tweets': tweets
     })
 

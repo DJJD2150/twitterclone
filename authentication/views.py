@@ -3,7 +3,7 @@ from django.http import HttpResponseForbidden
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 
-from twitteruser.models import CustomUserModel
+from twitteruser.models import TwitterUser
 from authentication.forms import LoginForm, SignupForm
 
 # Create your views here.
@@ -32,7 +32,7 @@ def signup_view(request):
         form = SignupForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            new_klutter_user = CustomUserModel.objects.create_user(
+            new_klutter_user = TwitterUser.objects.create_user(
                 username=data.get("username"),
                 password=data.get("password")
             )

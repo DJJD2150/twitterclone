@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from twitteruser.models import CustomUserModel
 
 # Create your forms here.
 class LoginForm(forms.Form):

@@ -1,0 +1,9 @@
+{% include 'navbar.html' %}
+
+{% for tweet in tweets %}
+    <div style="border:1px solid black; padding:10px;">
+        <h3><a href="/profilepage/{{ tweet.user_tweeted.id }}/">{{ tweet.user_tweeted }}</a></h3>
+        <p>{{ tweet.text }}</p>
+        <p>{{ tweet.date_tweeted }}</p>
+    </div>
+{% endfor %}

@@ -1,0 +1,25 @@
+{% include 'navbar.html' %}
+
+<h1>Klutter</h1>
+
+{% if request.user.is_authenticated %}
+    <h2>Welcome to Klutter, {{ request.user.username }}!</h2>
+{% endif %}
+
+<h2>Following: {{ users_following }}</h2>
+<h2>Tweets:  {{ tweet_count }}</h2>
+
+{% for tweet in tweets %}
+    <div style="border:1px solid black; padding:10px;">
+        <h3><a href="/profilepage/{{ tweet.user_tweeted.id }}/">{{ tweet.user_tweeted }}</a></h3>
+        <h3><a href="/tweetpage/{{ tweet.id }}/">View Tweet</a></h3>
+        <p>{{ tweet.text }}</p>
+        <p>{{ tweet.date_tweeted }}</p>
+    </div>
+{% endfor %}
+
+{% if request.user.is_authenticated %}
+    <p>
+        <a href="/logout/"><button>Logout</button></a>
+    </p>
+{% endif %}
